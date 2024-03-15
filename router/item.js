@@ -88,7 +88,7 @@ router.post('/bid/:id', requireAuth, async (req, res) => {
         return res.json({ status: 400, msg: "The seller cannot bid on their own item" });
     }
 
-    if(item.winningBidder.toString() == req.user._id.toString()){
+    if(item.winningBidder && (item.winningBidder.toString() == req.user._id.toString())){
         return res.json({ status: 400, msg: "You are the highest bidder" });
     }
   
