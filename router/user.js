@@ -13,6 +13,18 @@ router.post('/register', async (req, res) => {
         msg: "Registration failed",
       });
     } else {
+      let existingUser
+      if (email) {
+        existingUser = await User.findOne({ email: email });
+      } else if (mobileNumber) {
+        existingUser = await User.findOne({ mobileNumber: mobileNumber });
+      }
+      if (existingUser) {
+        return res.json({
+          status: 400,
+          msg: "User already exists. Please log in instead.",
+        });
+      }
       const hashedPassword = await bcrypt.hash(password, 10);
       const user = await User.create({ email, mobileNumber, password: hashedPassword });
       return res.json({
@@ -31,8 +43,6 @@ router.post('/register', async (req, res) => {
 
 router.post('/login', async (req, res) => {
   try {
-
-
     const { email, mobileNumber, password } = req.body;
     let user;
 
