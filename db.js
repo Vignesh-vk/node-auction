@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
-const userDBUrl = 'mongodb://127.0.0.1:27017/userDB';
-const auctionDBUrl = 'mongodb://127.0.0.1:27017/auctionDB';
+const userDBUrl = 'mongodb+srv://vigneshpanneer7:Vignesh2000@cluster0.vd0vkzi.mongodb.net/userDB';
+const auctionDBUrl = 'mongodb+srv://vigneshpanneer7:Vignesh2000@cluster0.vd0vkzi.mongodb.net/auctionDB';
 
 const userDB = mongoose.createConnection(userDBUrl, { useNewUrlParser: true, useUnifiedTopology: true });
 const auctionDB = mongoose.createConnection(auctionDBUrl, { useNewUrlParser: true, useUnifiedTopology: true });

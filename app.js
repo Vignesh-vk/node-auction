@@ -28,8 +28,8 @@ userDB.on('error', console.error.bind(console, 'User DB connection error:'));
 auctionDB.once('open', () => console.log('Auction DB connected'));
 auctionDB.on('error', console.error.bind(console, 'Auction DB connection error:'));
 
-mongoose.connect('mongodb://127.0.0.1:27017/mainDB', { useNewUrlParser: true, useUnifiedTopology: true });
-const mainDB = mongoose.connection;
+// mongoose.connect('mongodb://127.0.0.1:27017/mainDB', { useNewUrlParser: true, useUnifiedTopology: true });
+// const mainDB = mongoose.connection;
 
-mainDB.once('open', () => console.log('Main DB connected'));
-mainDB.on('error', console.error.bind(console, 'Main DB connection error:'));
+// mainDB.once('open', () => console.log('Main DB connected'));
+// mainDB.on('error', console.error.bind(console, 'Main DB connection error:'));
